@@ -10942,3 +10942,11 @@ a.text-dark:focus {
   }
 }
 
+.card .card-img-top {
+  width: 200px;
+}
+
+.card .text-muted {
+  font-weight: bolder;
+}
+
