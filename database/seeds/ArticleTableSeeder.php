@@ -25,24 +25,25 @@ class ArticleTableSeeder extends Seeder
         'Enrico Mentana'
        ];
        
-       $authorListID = [];
+       $authorListID = []; //salvo gli id
 
        foreach ($authorList as $author) { 
             $authorObject = new Author();
             $authorObject->name = $author;
             $authorObject->save();
-            $authorListID[] = $authorObject->id;      
+            $authorListID[] = $authorObject->id;   //push   
        }
 
        for ($i=0; $i < 50; $i++) { 
-           $article = new Article();
-           $article->title = $faker->sentences(1, true);
-           $article->cover = $faker->imageUrl('200','200','articles', true);
-           $article->content = $faker->paragraphs(6, true);
+           $articleObject = new Article();
+           $articleObject->title = $faker->sentences(1, true);
+           $articleObject->cover = $faker->imageUrl('200','200','articles', true);
+           $articleObject->content = $faker->paragraphs(6, true);
+           
            $randAuthorKey = array_rand($authorListID, 1);
            $authorID = $authorListID[$randAuthorKey];
-           $article->author_id = $authorID;
-           $article->save();
+           $articleObject->author_id = $authorID;
+           $articleObject->save();
        }
       
     }
