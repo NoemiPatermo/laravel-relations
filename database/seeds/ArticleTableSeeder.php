@@ -16,7 +16,7 @@ class ArticleTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-       $authorList = [  //crea array con gli autori
+       $authorList = [  //crea array con gli autori ('illustri nomi italiani' lol)
         'Bruno Vespa',
         'Lilli Gruber',
         'Mario Giordano',
@@ -27,21 +27,21 @@ class ArticleTableSeeder extends Seeder
        
        $authorListID = []; //salvo gli id
 
-       foreach ($authorList as $author) { 
+       foreach ($authorList as $author) { //parti da una lista, salva i suddetti
             $authorObject = new Author();
             $authorObject->name = $author;
             $authorObject->save();
-            $authorListID[] = $authorObject->id;   //push   
+            $authorListID[] = $authorObject->id;   // li pushi, assegando loro id   
        }
 
        for ($i=0; $i < 50; $i++) { 
-           $articleObject = new Article();
+           $articleObject = new Article();//una volta definito 
            $articleObject->title = $faker->sentences(1, true);
            $articleObject->cover = $faker->imageUrl('200','200','articles', true);
            $articleObject->content = $faker->paragraphs(6, true);
-           $randAuthorKey = array_rand($authorListID, 1);
-           $authorID = $authorListID[$randAuthorKey];
-           $articleObject->author_id = $authorID;
+           $randAuthorKey = array_rand($authorListID, 1);//prendi dall'array id in modo randomico
+           $authorID = $authorListID[$randAuthorKey];//assegnalo ad ana variabile
+           $articleObject->author_id = $authorID;//salvala nel db [fk done]
            $articleObject->save();
        }
       
