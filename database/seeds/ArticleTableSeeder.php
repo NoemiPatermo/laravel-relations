@@ -39,7 +39,6 @@ class ArticleTableSeeder extends Seeder
            $articleObject->title = $faker->sentences(1, true);
            $articleObject->cover = $faker->imageUrl('200','200','articles', true);
            $articleObject->content = $faker->paragraphs(6, true);
-           
            $randAuthorKey = array_rand($authorListID, 1);
            $authorID = $authorListID[$randAuthorKey];
            $articleObject->author_id = $authorID;
