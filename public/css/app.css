@@ -10946,6 +10946,11 @@ a.text-dark:focus {
   width: 200px;
 }
 
+.card .card-body h5 {
+  font-weight: bolder;
+  font-style: oblique;
+}
+
 .card .text-muted {
   font-weight: bolder;
 }

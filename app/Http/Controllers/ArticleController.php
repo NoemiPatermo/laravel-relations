@@ -14,8 +14,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::all();
-        
+        $articles = Article::all();//prendi tutti i dati e inviali alla index
+
         return view('articles.index', compact('articles'));
     }
 
@@ -26,7 +26,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        return view('articles.create');//qui hai il form vuoto che al salvataggio dei dati li invia alla store
     }
 
     /**
@@ -37,7 +37,10 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();//ha un metodo interno all(), che ti torna in array associativo i dati inviati
+        $article = new Article(); //crei oggetto vuoto
+        $this->fillAndSaveArticle($article, $data);//richiami la funzione che fa il match tra le proprietà del data e le salva 
+        return redirect()->route('articles.show');//fai la redirect sulla rotta show, passando anche come parametro id che salva
     }
 
     /**
@@ -48,7 +51,8 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        //
+        $article = Article::find($id); //trova id specifico con variabile creata appositamente
+        return view('articles.show', compact('article')); // e lo invia alla rotta show [template singolo post di dettaglio]
     }
 
     /**
@@ -83,5 +87,14 @@ class ArticleController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function fillAndSaveArticle(Article $article, $data) { //function privata che viene richiamata in store e in update
+        
+        $article->title = $data['title'];
+        $article->cover = $data['cover'];
+        $article->author = $data['author'];
+        $article->content = $data['content'];
+        $article->save();
     }
 }
