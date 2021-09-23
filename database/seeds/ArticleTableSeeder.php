@@ -36,7 +36,7 @@ class ArticleTableSeeder extends Seeder
 
        for ($i=0; $i < 50; $i++) { 
            $article = new Article();
-           $article->title = $faker->sentences();
+           $article->title = $faker->sentences(1, true);
            $article->cover = $faker->imageUrl('200','200','articles', true);
            $article->content = $faker->paragraphs(6, true);
            $randAuthorKey = array_rand($authorListID, 1);
