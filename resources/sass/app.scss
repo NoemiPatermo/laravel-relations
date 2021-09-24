@@ -7,3 +7,7 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 @import 'index';
+@import 'show';
+body{
+    background-color: rgba(165, 42, 42, 0.129);
+}
