@@ -13,9 +13,9 @@ class CreateArticleTagTable extends Migration
      */
     public function up()
     {
-        Schema::create('article_tag', function (Blueprint $table) {
+        Schema::create('article_tag', function (Blueprint $table) { //questa è la tabella pivot,
             $table->id();
-            //questa è la tabella pivot, definisci le due FK verso article e verso tag
+            // definisci le due FK verso article e verso tag
 
             $table->unsignedBigInteger('article_id');//crei colonna di questo tipo e poi indichi il vincolo della FK 
             $table->foreign('article_id')->references('id')->on('articles');//a quale colonna ti riferisci [references] su quale tabella[on]
