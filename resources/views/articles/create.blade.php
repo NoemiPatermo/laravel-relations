@@ -15,7 +15,7 @@
         @endif
 
         <div style="text-align: center;font-weight:bolder;font-style:oblique;" mb-2>
-                <h3>Aggiungi un nuovo post</h3>
+                <h3>Aggiungi un nuovo articolo</h3>
         </div>
 
 

@@ -28,7 +28,7 @@
     <a href="{{ route('articles.create') }}" > <!--ti manda alla create per creare un nuovo elemento-->
         <button type="button" class="btn btn-primary">Add new</button>
     </a>
-
+        <div class="row">
        @foreach($allArticles as $article)
         <div class="card-group mt-3">
             <div class="card" style="width: 18rem;">
@@ -43,6 +43,7 @@
                 </div>
             </div>
         @endforeach
+        </div>
    </div>
  
 @endsection

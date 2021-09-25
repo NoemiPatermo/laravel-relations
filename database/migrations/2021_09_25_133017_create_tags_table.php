@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAuthorInfosTable extends Migration
+class CreateTagsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateAuthorInfosTable extends Migration
      */
     public function up()
     {
-        Schema::create('author_infos', function (Blueprint $table) {
+        Schema::create('tags', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 20);
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class CreateAuthorInfosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('author_infos');
+        Schema::dropIfExists('tags');
     }
 }

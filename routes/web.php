@@ -13,12 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'ArticleController@index')->name('home');
+
 Route::resource('articles', ArticleController::class);
+
+Route::get('/', function () {
+    return redirect()->route('login');//dopo il logout fai l aredirect sulla rotta login
+});
