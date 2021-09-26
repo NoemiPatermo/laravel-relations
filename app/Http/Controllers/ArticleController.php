@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Article;
 use App\Author;
+use App\Tag;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -25,8 +26,10 @@ class ArticleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('articles.create');//qui hai il form vuoto che al salvataggio dei dati li invia alla store
+    {   
+        $tags = Tag::all();//manda alla create la lista dei tag 
+        $authors = Author::all();//manda alla create la lista dei tuoi autori
+        return view('articles.create', compact('tags', 'authors'));//qui hai il form vuoto che al salvataggio dei dati li invia alla store
     }
 
     /**
@@ -36,11 +39,12 @@ class ArticleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $data = $request->all();//ha un metodo interno all(), che ti torna in array associativo i dati inviati
+    {   
+        //dd($request);
+        
         $article = new Article(); //crei oggetto vuoto
-        $this->fillAndSaveArticle($article, $data);//richiami la funzione che fa il match tra le proprietà del data e le salva 
-        return redirect()->route('articles.show');//fai la redirect sulla rotta show, passando anche come parametro id che salva
+        $this->fillAndSaveArticle($article, $request);//richiami la funzione che fa il match tra le proprietà del data e le salva 
+        return redirect()->route('articles.show', $article->id);//fai la redirect sulla rotta show, passando anche come parametro id che salva
     }
 
     /**
@@ -89,12 +93,17 @@ class ArticleController extends Controller
         //
     }
 
-    private function fillAndSaveArticle(Article $article, $data) { //function privata che viene richiamata in store e in update
-        
+    private function fillAndSaveArticle(Article $article,  Request $request) { //function privata che viene richiamata in store e in update
+
+        $data = $request->all();//ha un metodo interno all(), che ti torna in array associativo i dati inviati
         $article->title = $data['title'];
         $article->cover = $data['cover'];
-        $article->author = $data['author'];
+        $article->author_id = $data['author_id'];//id Noemi id!remember always!
         $article->content = $data['content'];
-        $article->save();
+        $article->save();// salva, il tuo articolo avrà id 
+
+        foreach($data['tags'] as $tagId) {
+            $article->tag()->attach($tagId);
+        }
     }
 }

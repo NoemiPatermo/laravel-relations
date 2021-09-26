@@ -71,7 +71,7 @@ class ArticleTableSeeder extends Seeder
            $articleObject->author_id = $authorID;//salvala nel db [fk done]
 
            //prendi 2 tag random
-            $randomTagKeys = array_rand($tagsListID, 2);
+            $randomTagKeys = array_rand($tagsListID, 2);// è array di 2 chiavi
             $tag1 = $tagsListID[$randomTagKeys[0]]; //  qui prendi la 1^ chiave estratta
             $tag2 = $tagsListID[$randomTagKeys[1]]; // qui prendi la 2^ chiave estratta
 
