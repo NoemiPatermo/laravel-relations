@@ -4,7 +4,7 @@
 
         <div class="container">
         
-            @if ($errors->any())
+                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)
@@ -24,32 +24,33 @@
                             <div class="row  justify-content-center mt-4">
                             
                                 <div class="form-group col-8">
-                                    <div class="form-group"  >
+
+                                    <div class="form-group">
                                         <label for="title" >Title</label>
                                         <input type="text" class="form-control"  name="title" id="title">
                                     
                                     </div>
 
-                                <!--invia alla create una lista di tags e per ognuno stampi stampa una checkbox-->
-                                    <strong>Tag</strong>
+                                      <!--invia alla create una lista di tags e per ognuno stampi stampa una checkbox-->
+                                        <strong>Tag</strong>
                                         <div class="form-group">
-                                        @foreach($tags as $tag) <!--tags[] è array di id tag, che arriva alla store come array ovviamente, esegui poi  l'attach solo dei tag ricevuti-->
-                                        <div>
-                                            <input name="tags[]" type="checkbox" value="{{ $tag->id }}">
-                                            <label>{{$tag->name}}</label>
+                                            @foreach($tags as $tag) <!--tags[] è array di id tag, che arriva alla store come array ovviamente, esegui poi  l'attach solo dei tag ricevuti-->
+                                            <div class="chip">
+                                                <input name="tags[]" type="checkbox" value="{{ $tag->id }}">
+                                                <label class="chip-label">{{$tag->name}}</label>
+                                            </div>
+                                            @endforeach
+
                                         </div>
-                                        @endforeach
 
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="cover ">Cover</label>
-                                        <input type="text" class="form-control" name="cover" id="cover">
-                                    </div>
+                                        <div class="form-group">
+                                            <label for="cover ">Cover</label>
+                                            <input type="text" class="form-control" name="cover" id="cover">
+                                        </div>
 
 
                                         <div class="form-group">
-                                        <div class="input-group mb-3">
+                                            <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                     <label class="input-group-text" for="author_id">Options</label>
                                                 </div>
@@ -61,8 +62,6 @@
                                                 </select>
                                             </div>
                                 
-
-
                                             <div class="form-group">
                                                 <label for="date">Content</label>
                                                 <textarea  class="form-control" name="content" id="date"></textarea>
@@ -72,7 +71,7 @@
                                                 <button type="submit" class="btn btn-primary">Save</button>
                                             </div>
                                         </div> 
-                            </div>             
+                             </div>             
                 </form>
         </div>
 

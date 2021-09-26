@@ -13,7 +13,7 @@ class CreateArticleTagTable extends Migration
      */
     public function up()
     {
-        Schema::create('article_tag', function (Blueprint $table) { //questa è la tabella pivot,
+        Schema::create('article_tag', function (Blueprint $table) {
             $table->id();
             // definisci le due FK verso article e verso tag
 

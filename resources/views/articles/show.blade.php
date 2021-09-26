@@ -23,7 +23,13 @@
                             <h5 class="card-title">{{ $article->title }}</h5>
                             <p class="card-text">{{ $article->content}}</p> 
                             <span class="write">Written by: {{ $article->author->name }}</span>
-               
+                          
+                                @foreach($article->tag as $tag)
+                                <div class="chip chip-label"> <!--chip che non funzionano -->
+                                  <span class="chip-label">{{$tag->name}}</span>
+                                </div>
+                                @endforeach
+                           
                         </div>
                     </div>
         </div>

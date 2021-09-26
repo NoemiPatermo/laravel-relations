@@ -64,7 +64,7 @@ class ArticleTableSeeder extends Seeder
            $articleObject = new Article();//una volta definito 
            $articleObject->title = $faker->sentences(1, true);
            $articleObject->cover = $faker->imageUrl('200','200','articles', true);
-           $articleObject->content = $faker->paragraphs(6, true);
+           $articleObject->content = $faker->paragraphs(3, true);
 
            $randAuthorKey = array_rand($authorListID, 1);//prendi dall'array id in modo randomico, con n specifichi quante chiavi vuoi che prenda
            $authorID = $authorListID[$randAuthorKey];//assegnalo ad una variabile
