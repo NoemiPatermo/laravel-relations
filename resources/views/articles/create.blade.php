@@ -31,7 +31,7 @@
                                     
                                     </div>
 
-                                      <!-- ora invia alla create una lista di tags e per ognuno stampi stampa una checkbox-->
+                                      <!-- invia alla create una lista di tags e per ognuno stampi stampa una checkbox-->
                                         <strong>Tag</strong>
                                         <div class="form-group">
                                             @foreach($tags as $tag) <!--tags[] è array di id tag, che arriva alla store come array ovviamente, esegui poi  l'attach solo dei tag ricevuti-->
