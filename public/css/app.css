@@ -10942,20 +10942,20 @@ a.text-dark:focus {
   }
 }
 
-.card-group {
-  box-shadow: 5px 10px 18px #888888;
+.box {
+  box-shadow: 3px #888888;
 }
 
-.card-group .card .card-img-top {
+.box .card .card-img-top {
   width: 200px;
 }
 
-.card-group .card .card-body h5 {
+.box .card .card-body h5 {
   font-weight: bolder;
   font-style: oblique;
 }
 
-.card-group .card .text-muted {
+.box .card .text-muted {
   font-weight: bolder;
 }
 

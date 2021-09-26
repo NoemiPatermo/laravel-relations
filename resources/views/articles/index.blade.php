@@ -9,8 +9,8 @@
     </a>
         <div class="row mt-2">
            @foreach($articles as $article)
-              <div class="col-3">
-                    <div class="card" style="width:18rem;">
+              <div class=" box col-4 mt-2">
+                    <div class="card" style="width:18rem;height:60rem;">
                        <img class="card-img-top" src="{{$article->cover}}" alt="Card image cap">
                        <div class="card-body">
                             <h5 class="card-title">{{$article->title}}</h5>
