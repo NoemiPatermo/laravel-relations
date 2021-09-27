@@ -30,7 +30,16 @@
                                 </div>
                                 @endforeach
                               </div>
-                           
+                            <form action="{{ route ('articles.store') }}" method="POST">
+                                @csrf
+                              <div class="form-group mt-3">
+                                <label for="comment" style="font-weight:bold"for="comment">Leave a comment</label>
+                                <textarea  class="form-control" name="comment" id="comment"></textarea>
+                              </div>
+                              <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                              </div>
+                            </form>  
                         </div>
                     </div>
         </div>
