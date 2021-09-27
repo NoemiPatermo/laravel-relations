@@ -17,7 +17,7 @@
                             
                         </div>
                     </div>             
-                    <div class="card" style="width: 18rem;">
+                    <div class="card">
                         <img class="card-img-top" src="{{ $article->cover }}" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{ $article->title }}</h5>
@@ -26,7 +26,7 @@
                           
                                 @foreach($article->tag as $tag)
                                 <div class="chip chip-label"> <!--chip che non funzionano -->
-                                  <span class="chip-label">{{$tag->name}}</span>
+                                  <span class="chip-label"><a href="{{ route('tag-show', $tag) }}">{{$tag->name}}</a></span>
                                 </div>
                                 @endforeach
                            

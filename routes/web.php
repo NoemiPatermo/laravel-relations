@@ -27,3 +27,5 @@ Route::resource('articles', ArticleController::class);
 Route::get('/', function () {
     return redirect()->route('login');//dopo il logout fai l aredirect sulla rotta login
 });
+
+Route::get('/tags/{tag}', 'TagsController@show')->name('tag-show');//crei la rotta per mostrare ogni singolo tag a quanti articoli è collegato
