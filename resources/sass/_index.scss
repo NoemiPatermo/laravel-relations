@@ -2,7 +2,9 @@
     box-shadow: 3px  #888888;
     .card{
         .card-img-top{
-            width: 200px;
+           img{
+               width: 150px;
+           }
             
         }
         .card-body h5{

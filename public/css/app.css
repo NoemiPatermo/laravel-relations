@@ -10946,8 +10946,8 @@ a.text-dark:focus {
   box-shadow: 3px #888888;
 }
 
-.box .card .card-img-top {
-  width: 200px;
+.box .card .card-img-top img {
+  width: 150px;
 }
 
 .box .card .card-body h5 {
@@ -10961,10 +10961,8 @@ a.text-dark:focus {
 
 .card {
   box-shadow: 5px 10px 18px #888888;
-}
-
-.card img {
-  width: 400px;
+  text-align: center;
+  line-height: 25px;
 }
 
 .card .card-body h5 {
@@ -10974,6 +10972,22 @@ a.text-dark:focus {
 .card .card-body .write {
   font-style: oblique;
   font-weight: bold;
+}
+
+.card .card-body .chip {
+  display: inline-block;
+  padding: 0 15px;
+  height: 30px;
+  font-size: 14px;
+  line-height: 30px;
+  border-radius: 25px;
+  background-color: #5f9ea044;
+  margin-top: 5px;
+}
+
+.card .card-body .chip a {
+  text-decoration: none;
+  color: #000;
 }
 
 body {

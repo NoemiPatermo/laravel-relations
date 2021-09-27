@@ -17,18 +17,19 @@
                             
                         </div>
                     </div>             
-                    <div class="card">
+                    <div class="card" style="width:50rem;">
                         <img class="card-img-top" src="{{ $article->cover }}" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{ $article->title }}</h5>
                             <p class="card-text">{{ $article->content}}</p> 
                             <span class="write">Written by: {{ $article->author->name }}</span>
-                          
+                              <div>
                                 @foreach($article->tag as $tag)
-                                <div class="chip chip-label"> <!--chip che non funzionano -->
-                                  <span class="chip-label"><a href="{{ route('tag-show', $tag) }}">{{$tag->name}}</a></span>
+                                <div class="chip"> 
+                                  <a href="{{ route('tag-show', $tag) }}">{{$tag->name}}</a>
                                 </div>
                                 @endforeach
+                              </div>
                            
                         </div>
                     </div>
