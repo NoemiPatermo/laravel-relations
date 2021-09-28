@@ -5,6 +5,8 @@ use App\Article;
 use App\Author;
 use App\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendNewMail;
 
 class ArticleController extends Controller
 {
@@ -41,9 +43,11 @@ class ArticleController extends Controller
     public function store(Request $request)
     {   
         //dd($request);
-        
         $article = new Article(); //crei oggetto vuoto
         $this->fillAndSaveArticle($article, $request);//richiami la funzione che fa il match tra le proprietà del data e le salva 
+
+        Mail::to('info@test.it')->send(new SendNewMail($article));//invii l'oggetto al costruttore
+
         return redirect()->route('articles.show', $article->id);//fai la redirect sulla rotta show, passando anche come parametro id che salva
     }
 
