@@ -30,16 +30,24 @@
                                 </div>
                                 @endforeach
                               </div>
-                            <form action="{{ route ('articles.store') }}" method="POST">
+                            <form action="{{ route ('comments.store') }}" method="POST">
                                 @csrf
                               <div class="form-group mt-3">
                                 <label for="comment" style="font-weight:bold"for="comment">Leave a comment</label>
-                                <textarea  class="form-control" name="comment" id="comment"></textarea>
+                                  <input type="hidden" name="article_id" id="article_id" value="{{$article->id}}">
+                                <textarea  class="form-control" name="text" id="text"></textarea>
                               </div>
                               <div class="form-group">
                                 <button type="submit" class="btn btn-primary">Save</button>
                               </div>
                             </form>  
+                              <div class="comment">
+                                  <div>Commento:</div>
+                                      @foreach ($article->comment as $comment)
+                                      <div class="text-comment">{{$comment->text}}</div>
+                                      <div class="date-comment">Data Commento: {{$comment->created_at->format('d/m/Y')}}</div>                    
+                                      @endforeach
+                              </div>
                         </div>
                     </div>
         </div>

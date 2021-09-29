@@ -99,7 +99,7 @@ class ArticleController extends Controller
 
     private function fillAndSaveArticle(Article $article,  Request $request) { //function privata che viene richiamata in store e in update
 
-        $data = $request->all();//ha un metodo interno all(), che ti torna in array associativo i dati inviati
+        $data = $request->all();  //ha un metodo interno all(), che ti torna in array associativo i dati inviati
         $article->title = $data['title'];
         $article->cover = $data['cover'];
         $article->author_id = $data['author_id'];//id Noemi id!remember always!

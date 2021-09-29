@@ -29,3 +29,5 @@ Route::get('/', function () {
 });
 
 Route::get('/tags/{tag}', 'TagsController@show')->name('tag-show');//crei la rotta per mostrare ogni singolo tag a quanti articoli è collegato
+
+Route::resource('comments', CommentController::class);
